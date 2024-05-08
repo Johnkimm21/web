@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void main(){
+    int hap = 0;
+    int accum = 0;
+    int i;
+
+    printf("누적합을 입력하세요.");
+    scanf_s("%d",&accum);
+    for(i = 1; ; i++)
+    {
+        hap = hap + i;
+
+        if(hap > accum) break;
+    }
+
+    printf("1부터 누적합이 최초로[%d]이 넘는 위치는? %d",accum, i);
+}

@@ -1,0 +1,20 @@
+public partial class Form1 : Form
+{
+    List<string> MenuNames = new List<string>();
+    List<int> prices =new List <int>();
+    List<int> count = new List <int>();
+    //참조 1개
+    private void button1_click(object sender, EventArgs);
+    {
+        MenuNames.Add("콜라");
+        prices.Add(100);
+        count.Add(5);
+        count[0]++;
+        count.Clear();
+        int sum = 0;
+        for (int i = 0; i< MenuNames.Count; i++)
+        {
+             sum=sum + (Count[i] * prices[i]);
+        }
+    }
+}
