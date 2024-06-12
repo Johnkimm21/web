@@ -1,0 +1,34 @@
+class Character:
+    def __init__(self, name, hp, mp, attack, magic, crit_chance):
+        self.name = name
+        self.hp = hp
+        self.mp = mp
+        self.attack = attack
+        self.magic = magic
+        self.crit_chance = crit_chance
+
+    def attack_enemy(self, enemy):
+        damage = self.attack
+        if self.crit_chance >= random.random():
+            damage += 10  # 크리티컬 추가 데미지
+        enemy.hp -= damage
+
+# 마법사와 몬스터 생성
+wizard = Character("갈달프", 80, 100, 5, 30, 0.3)
+orc = Character("오크", 100, 0, 10, 0, 0)
+goblin = Character("고블린", 100, 0, 10, 0, 0)
+
+# 게임 진행
+while wizard.hp > 0 and (orc.hp > 0 or goblin.hp > 0):
+    wizard.attack_enemy(orc)
+    wizard.attack_enemy(goblin)
+    if orc.hp > 0:
+        orc.attack_enemy(wizard)
+    if goblin.hp > 0:
+        goblin.attack_enemy(wizard)
+
+# 게임 결과 출력
+if wizard.hp <= 0:
+    print("마법사가 패배했습니다.")
+else:
+    print("모든 몬스터를 물리쳤습니다!")
